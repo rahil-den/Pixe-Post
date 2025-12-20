@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+
+:root{
+  --primary: #EEEEEE;
+}
+
+*{
+ 
+
+  
+  box-sizing: border-box;
+  font-family: "Merriweather","Inter", sans-serif;
+  
+}
