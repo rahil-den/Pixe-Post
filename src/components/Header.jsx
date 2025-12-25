@@ -12,7 +12,7 @@ const Header = () => {
 
         <div className="flex items-center gap-4 mt-4 lg:mt-0">
         
-          <a href="#">
+          <a href="/canvas">
             <button className="px-5 py-2.5 rounded-lg font-medium text-white bg-gradient-to-r from-slate-900 to-slate-700 transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97]">
               Start creating
             </button>
