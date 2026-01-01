@@ -1,21 +1,10 @@
-import { label } from 'motion/react-client';
-import { useState, useEffect, useRef, use} from 'react'
-
-const CANVAS_PRESETS = {
-  instagramPost: { label: 'Instagram Post', width: 1080, height: 1080 },
-  instagramStory: { label: 'Instagram Story', width: 1080, height: 1920 },
-  facebookPost: { label: 'Facebook Post', width: 1200, height: 630 },
-  twitterPost: { label: 'Twitter Post', width: 1024, height: 512 },
-  linkedinPost: { label: 'LinkedIn Post', width: 1200, height: 627 },
-  pinterestPost: { label: 'Pinterest Post', width: 1000, height: 1500 },
-  a4Document: { label: 'A4 Document', width: 794, height: 1123 },
-  youtubeThumbnail: { label: 'YouTube Thumbnail', width: 1280, height: 720 },
-}
+import { useState } from 'react';
+import { useCanvasHeader } from '../../context/CanvasHeader';
 
 
 const CanvasArea = () => {
-  const [canvasSize, setCanvasSize] = useState(CANVAS_PRESETS.instagramPost);
-  const [isActive, setIsActive] = useState(false);
+
+  const { canvasSize, setCanvasSize, CANVAS_PRESETS } = useCanvasHeader();
 
 
     
@@ -50,7 +39,7 @@ const CanvasArea = () => {
 
       <div className="flex justify-center">
         <div
-          className="bg-white shadow-lg border border-neutral-300 rounded-lg"
+          className="bg-white shadow-lg border border-neutral-300 rounded-lg transition-all delay-75"
           style={{
             width: `${canvasSize.width}px`,
             height: `${canvasSize.height}px`,

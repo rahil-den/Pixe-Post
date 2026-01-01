@@ -1,6 +1,7 @@
 import { Download } from "lucide-react";
-
+import { useCanvasHeader } from "../../context/CanvasHeader";
 const TopBar = () => {
+  const {canvasSize} = useCanvasHeader();
   return (
     <header className="w-full h-16 bg-white/60 backdrop-blur-lg border-b border-black/10 px-6 flex items-center justify-between">
       
@@ -11,7 +12,7 @@ const TopBar = () => {
 
     
       <div className="text-sm text-slate-600">
-        Instagram Post · 1080 × 1080
+        {canvasSize.label} · {canvasSize.width} × {canvasSize.height}
       </div>
 
       
@@ -23,7 +24,7 @@ const TopBar = () => {
       </div>
 
     </header>
-  );
+  );t
 };
 
 export default TopBar;
