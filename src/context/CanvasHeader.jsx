@@ -14,7 +14,7 @@ const CANVAS_PRESETS = {
 
 const CanvasContext = createContext();
 
-export const CanvasProvider = ({ children  })=>{
+export const CanvasHeaderContext = ({ children  })=>{
     const [canvasSize, setCanvasSize] = useState(CANVAS_PRESETS.default);
     
     const value = {

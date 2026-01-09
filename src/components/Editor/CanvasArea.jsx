@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState , useRef, useMemo} from 'react';
 import { useCanvasHeader } from '../../context/CanvasHeader';
 
 

@@ -10,7 +10,7 @@ const HeroSection = () => {
 
        
         <p className="text-[1.3rem] text-neutral-500 mt-1">
-          Create aesthetic quote photos.
+          Create <span ></span>stunning pixel art posts with ease.
         </p>
 
         <div className="w-full mt-10 bg-neutral-100 rounded-xl h-[400px] flex items-center justify-center">

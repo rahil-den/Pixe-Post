@@ -2,12 +2,12 @@ import TopBar from "../components/Editor/TopBar.jsx";
 import LeftBar from "../components/Editor/LeftBar.jsx";
 import CanvasArea from "../components/Editor/CanvasArea.jsx";
 import RightBar from "../components/Editor/RightBar.jsx";
-import { CanvasProvider } from "../context/CanvasHeader.jsx";
-
+import { CanvasHeaderContext } from "../context/CanvasHeader.jsx";
+import { CanvasProvider } from "../context/CanvasContext.jsx";
 const Editor = () => {
   return (
+    <CanvasHeaderContext>
     <CanvasProvider>
-
     <div className="h-screen w-full flex flex-col">
       <TopBar />
 
@@ -24,6 +24,7 @@ const Editor = () => {
 
     </div>
     </CanvasProvider>
+    </CanvasHeaderContext>
   );
 };
 
