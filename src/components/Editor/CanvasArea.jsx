@@ -1,12 +1,12 @@
 import { useState , useRef, useMemo} from 'react';
 import { useCanvasHeader } from '../../context/CanvasHeader';
-
+import { useCanvas } from '../../context/CanvasContext';
 
 const CanvasArea = () => {
 
   const { canvasSize, setCanvasSize, CANVAS_PRESETS } = useCanvasHeader();
 
-
+ const {elements, selectedId, setSelectedId} = useCanvas();
     
     
 
@@ -39,12 +39,30 @@ const CanvasArea = () => {
 
       <div className="flex justify-center">
         <div
-          className="bg-white shadow-lg border border-neutral-300 rounded-lg transition-all delay-75"
+          className="bg-white shadow-lg border border-neutral-300 rounded-lg transition-all delay-75 overflow-hidden"
           style={{
             width: `${canvasSize.width}px`,
             height: `${canvasSize.height}px`,
           }}
         />
+        {elements.map((el) => (
+            <img
+              key={el.id}
+              src={el.src}
+              onClick={() => setSelectedId(el.id)}
+              className={`absolute cursor-pointer ${
+                selectedId === el.id
+                  ? "ring-2 ring-blue-500"
+                  : ""
+              }`}
+              style={{
+                top: el.y,
+                left: el.x,
+                width: el.width,
+                height: el.height,
+              }}
+            />
+          ))}
       </div>
     </main>
   )
