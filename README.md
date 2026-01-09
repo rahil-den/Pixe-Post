@@ -1,7 +1,6 @@
-# Pixe-post.
-> A website where one can create Aesthetic new qoute type photos.
+# Pixe-post
 
-A git commit table
-| Commit Hash | Author | Date | Message |
-|-------------|--------|------|---------|
-| e0c9657 | rahil | 2025-10-01 | Updated Features component with new content and styles |
+> A website where one can add photos and can edit / add text / change contrast and brightness of the image.
+
+----
+## An web based Editor where there is no login / Registeration
