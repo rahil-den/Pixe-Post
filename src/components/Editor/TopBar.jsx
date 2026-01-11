@@ -1,5 +1,6 @@
-import { Download } from "lucide-react";
+import { Download, Trash2  } from "lucide-react";
 import { useCanvasHeader } from "../../context/CanvasHeader";
+
 const TopBar = () => {
   const {canvasSize} = useCanvasHeader();
   return (
@@ -17,6 +18,7 @@ const TopBar = () => {
 
       
       <div className="flex items-center gap-3">
+          
         <button className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:bg-black/90 active:scale-[0.97] transition">
           <Download className="w-4 h-4" />
           Export

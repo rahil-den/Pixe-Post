@@ -1,14 +1,46 @@
 import { useState , useRef, useMemo} from 'react';
 import { useCanvasHeader } from '../../context/CanvasHeader';
 import { useCanvas } from '../../context/CanvasContext';
+// import { isDragging } from 'motion';
 
 const CanvasArea = () => {
 
-  const { canvasSize, setCanvasSize, CANVAS_PRESETS } = useCanvasHeader();
+ const { canvasSize, setCanvasSize, CANVAS_PRESETS } = useCanvasHeader();
 
  const {elements, selectedId, setSelectedId} = useCanvas();
-    
-    
+ const canvasRef = useRef(null);
+ 
+ const dragRef = useRef({
+  isDragging: false,
+  id: null,
+  offsetX: 0,
+  offsetY: 0,
+
+ });
+  
+const onMouseDown = (e, el) => {
+dragRef.current = {
+  isDragging:true,
+  id: el.id,
+  offsetX: e.clientX - el.x,
+  offsetY: e.clientY - el.y,
+};
+ setSelectedId(el.id);
+};
+
+const onMouseMove = (e) => {
+  if (!dragRef.current.isDragging) return;
+
+  updateElement(dragRef.current.id,{
+    x:e.clientX - dragRef.current.offsetX,
+    y:e.clientY - dragRef.current.offsetY,
+  });
+
+};
+
+const onMouseUp = (e) => {
+  dragRef.current.isDragging = false;
+}
 
 
   return (
@@ -44,6 +76,10 @@ const CanvasArea = () => {
       width: canvasSize.width,
       height: canvasSize.height,
     }}
+    ref={canvasRef}
+    onMouseMove={onMouseMove}
+    onMouseUp={onMouseUp}
+
   >
     {elements.map((el) => (
       <img
@@ -59,8 +95,13 @@ const CanvasArea = () => {
           width: el.width,
           height: el.height,
         }}
+
+        onMouseDown={(e) => onMouseDown(e, el)}
       />
-    ))}
+      
+    ))
+    
+    }
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 
 import { createContext, useContext, useState  } from "react";
 const CANVAS_PRESETS = {
-    default: { label: "default" ,width:1600, height:1600 },
+    default: { label: "default" ,width:1080, height:1080 },
    
     //  linkedinPost: { label: "LinkedIn Post", width: 1080, height: 627 },
     // pinterestPost: { label: "Pinterest Post", width: 1000, height: 1000 },

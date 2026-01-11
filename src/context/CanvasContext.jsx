@@ -32,7 +32,30 @@ export const CanvasProvider = ({ children }) => {
     setSelectedId(newImage.id);
   };
 
+//  onload event is fired when the image has been loaded
+// This ensures that we only add the image to our elements state after it has fully loaded
+// Below is the code starting for addText
+
+
+
     };
+
+    const addText = () => {
+    const newText = {
+        id: crypto.randomUUID(),
+        type: "text",
+        text: "New Text",
+        x: 200,
+        y:200,
+        fontSize:48,
+        fontFamily:"Inter",
+        color:"#000000",
+    };
+
+    setElements((prev) => [...prev, newText]);
+    setSelectedId(newText.id);
+}
+
 
 
 const updateElement = (id, updates) => {
@@ -48,6 +71,7 @@ const selectedElement = elements.find((el) => el.id === selectedId);
       value={{
         elements,
         addImage,
+        addText,
         selectedId,
         setSelectedId,
         selectedElement,
