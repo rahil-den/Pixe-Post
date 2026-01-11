@@ -7,21 +7,32 @@ export const CanvasProvider = ({ children }) => {
     const [elements, setElements] = useState([]);
     const [selectedId, setSelectedId] = useState(null);
 
-    const addImage = (src) => {
-        const newImage = {
-            id: crypto.randomUUID(),
-            type: "image",
-            src, 
-            x:100,
-            y:100,
-            width:300,
-            height:300,
-        };
+    const addImage = (src, canvasWidth,canvasHeight) => {
 
-        setElements((prev) => [...prev, newImage]);
-        setSelectedId(newImage.id);
+        const img = new Image();
+        img.src = src;
+//  Creates a new HTMLImageElement.
 
-    }
+// Assigning src starts loading the image asynchronously -> Basically naya tag bangega betaa
+        img.onload = () => {
+    const maxWidth = canvasWidth * 0.8;
+    const scale = Math.round(maxWidth / img.width) < 1 ? Math.round(maxWidth / img.width) : 1;
+
+    const newImage = {
+      id: crypto.randomUUID(),
+      type: "image",
+      src,
+      x: (canvasWidth - img.width * scale) / 2,
+      y: (canvasHeight - img.height * scale) / 2,
+      width: img.width * scale,
+      height: img.height * scale,
+    };
+
+    setElements((prev) => [...prev, newImage]);
+    setSelectedId(newImage.id);
+  };
+
+    };
 
 
 const updateElement = (id, updates) => {

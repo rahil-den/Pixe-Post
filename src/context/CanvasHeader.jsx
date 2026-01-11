@@ -1,14 +1,11 @@
 
 import { createContext, useContext, useState  } from "react";
 const CANVAS_PRESETS = {
-    default: { label: "default" ,width:1080, height:1080 },
-    instagramPost: { label: "Instagram Post", width: 1080, height: 1080 },
-    instagramStory: { label: "Instagram Story", width: 1080, height: 1920 },
-    facebookPost: { label: "Facebook Post", width: 1200, height: 630 },
-    twitterPost: { label: "Twitter Post", width: 1024, height: 512 },
-     linkedinPost: { label: "LinkedIn Post", width: 1200, height: 627 },
-    pinterestPost: { label: "Pinterest Post", width: 1000, height: 1500 },
-    a4Document: { label: "A4 Document", width: 794, height: 1123 },
+    default: { label: "default" ,width:1600, height:1600 },
+   
+    //  linkedinPost: { label: "LinkedIn Post", width: 1080, height: 627 },
+    // pinterestPost: { label: "Pinterest Post", width: 1000, height: 1000 },
+    // a4Document: { label: "A4 Document", width: 794, height: 1123 },
     // youtubeThumbnail: { label: "YouTube Thumbnail", width: 1200, height: 720 },
 };
 

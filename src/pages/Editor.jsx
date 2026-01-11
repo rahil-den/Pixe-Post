@@ -11,7 +11,8 @@ const Editor = () => {
     <div className="h-screen w-full flex flex-col">
       <TopBar />
 
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 min-h-0">
+
         <LeftBar />
 
        
